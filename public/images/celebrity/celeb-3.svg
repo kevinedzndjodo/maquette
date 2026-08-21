@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <rect fill="#0A0A0A" width="800" height="1000"/>
+  <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-family="Georgia, serif" font-size="28.000000000000004" fill="#F5F0E8" opacity="0.12" letter-spacing="0.15em">CELEBRITY</text>
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#C9B896" opacity="0.25" letter-spacing="0.2em" text-transform="uppercase">Music Video</text>
+  <line x1="320" y1="620" x2="480" y2="620" stroke="#C9B896" stroke-width="1" opacity="0.2"/>
+</svg>

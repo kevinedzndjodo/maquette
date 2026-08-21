@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect fill="#0A0A0A" width="800" height="600"/>
+  <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-family="Georgia, serif" font-size="21.000000000000004" fill="#F5F0E8" opacity="0.12" letter-spacing="0.15em">FORMATION</text>
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#C9B896" opacity="0.25" letter-spacing="0.2em" text-transform="uppercase">Editorial Creative</text>
+  <line x1="320" y1="372" x2="480" y2="372" stroke="#C9B896" stroke-width="1" opacity="0.2"/>
+</svg>

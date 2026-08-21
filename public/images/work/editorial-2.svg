@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1600" width="600" height="1600">
+  <rect fill="#0A0A0A" width="600" height="1600"/>
+  <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-family="Georgia, serif" font-size="21.000000000000004" fill="#F5F0E8" opacity="0.12" letter-spacing="0.15em">AVANT-GARDE</text>
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#C9B896" opacity="0.25" letter-spacing="0.2em" text-transform="uppercase">Structural Beauty</text>
+  <line x1="240" y1="992" x2="360" y2="992" stroke="#C9B896" stroke-width="1" opacity="0.2"/>
+</svg>

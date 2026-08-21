@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-noir: #0A0A0A;
+    --color-ivoire: #F5F0E8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivoire text-noir font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    @apply bg-champagne text-noir;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-ivoire;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-nude rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-champagne;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  .section {
+    @apply py-18 sm:py-22 lg:py-30;
+  }
+
+  .section-title {
+    @apply font-serif text-display-lg text-noir font-medium tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply font-sans text-caption uppercase tracking-widest text-champagne mb-4;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-body-sm font-medium uppercase tracking-wider text-noir bg-transparent border border-noir hover:bg-noir hover:text-ivoire transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-body-sm font-medium uppercase tracking-wider text-noir bg-transparent border border-nude hover:bg-nude hover:text-noir transition-all duration-300;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-body-sm font-medium text-white bg-[#25D366] hover:bg-[#128C7E] transition-colors duration-300;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-current after:scale-x-0 after:origin-bottom-right hover:after:scale-x-100 after:transition-transform after:duration-300;
+  }
+
+  .image-reveal {
+    @apply overflow-hidden;
+  }
+
+  .image-reveal img {
+    @apply transform transition-transform duration-1000 ease-out scale-100 hover:scale-105;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+}

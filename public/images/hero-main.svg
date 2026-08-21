@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect fill="#0A0A0A" width="1920" height="1080"/>
+  <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-family="Georgia, serif" font-size="37.800000000000004" fill="#F5F0E8" opacity="0.12" letter-spacing="0.15em">FRED KENDRICK</text>
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16.2" fill="#C9B896" opacity="0.25" letter-spacing="0.2em" text-transform="uppercase">Makeup Artist</text>
+  <line x1="768" y1="669.6" x2="1152" y2="669.6" stroke="#C9B896" stroke-width="1.92" opacity="0.2"/>
+</svg>
