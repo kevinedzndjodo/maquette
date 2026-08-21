@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(10,10,10,0.3)_0%,_rgba(10,10,10,0.6)_70%)]" />
       </div>
 
-      <div className="relative z-10 container-custom px-6">
+      <div className="relative z-10 container-custom px-4 md:px-6">
         <motion.div
           className="text-center max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
@@ -26,7 +26,7 @@ export default function Hero() {
           transition={{ duration: 1, ease: 'easeOut' }}
         >
           <motion.span
-            className="inline-block font-sans text-caption uppercase tracking-widest text-champagne mb-6"
+            className="inline-block font-sans text-caption uppercase tracking-widest text-champagne mb-4 md:mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -36,7 +36,7 @@ export default function Hero() {
 
           <motion.h1
             id="hero-title"
-            className="font-serif text-display-xl text-ivoire font-medium tracking-tight leading-[1.05] mb-6"
+            className="font-serif text-display-xl text-ivoire font-medium tracking-tight leading-[1.05] mb-4 md:mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -45,7 +45,7 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            className="font-sans text-body-lg text-ivoire/90 max-w-2xl mx-auto mb-12 tracking-wide"
+            className="font-sans text-body-lg text-ivoire/90 max-w-2xl mx-auto mb-8 md:mb-12 tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -54,14 +54,14 @@ export default function Hero() {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
             <motion.a
               href="#work"
-              className={`w-full sm:w-auto ${btnPrimary} border-ivoire text-ivoire hover:bg-ivoire hover:text-noir`}
+              className={`w-full sm:w-auto ${btnPrimary} border-ivoire text-ivoire hover:bg-ivoire hover:text-noir py-4 px-6 md:px-8 text-body-sm md:text-body-sm`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -70,7 +70,7 @@ export default function Hero() {
             </motion.a>
             <motion.a
               href="#contact"
-              className={`w-full sm:w-auto ${btnSecondary} border-ivoire/50 text-ivoire hover:bg-ivoire/10 hover:border-ivoire`}
+              className={`w-full sm:w-auto ${btnSecondary} border-ivoire/50 text-ivoire hover:bg-ivoire/10 hover:border-ivoire py-4 px-6 md:px-8 text-body-sm md:text-body-sm`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -81,13 +81,13 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+          className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 md:gap-3 hidden sm:block"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
         >
           <motion.div
-            className="w-px h-16 bg-ivoire/30"
+            className="w-px h-12 md:h-16 bg-ivoire/30"
             animate={{ scaleY: [0, 1, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           />

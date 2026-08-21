@@ -11,7 +11,7 @@ export default function Academy() {
     <section id="academy" className="section bg-ivoire" aria-labelledby="academy-title">
       <div className={containerCustom}>
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
@@ -34,14 +34,14 @@ export default function Academy() {
 
         {featured && (
           <motion.article
-            className="relative overflow-hidden mb-16"
+            className="relative overflow-hidden mb-12 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
             <div className="grid lg:grid-cols-2 gap-0">
-              <div className="relative aspect-[4/3] lg:aspect-auto min-h-[400px]">
+              <div className="relative aspect-[4/3] lg:aspect-auto min-h-[300px] md:min-h-[400px]">
                 <div className="image-reveal absolute inset-0">
                   <img
                     src={featured.image}
@@ -52,49 +52,49 @@ export default function Academy() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-noir/60 via-noir/20 to-transparent" />
               </div>
-              <div className="p-10 lg:p-16 bg-noir text-ivoire flex flex-col justify-center">
+              <div className="p-6 md:p-10 lg:p-16 bg-noir text-ivoire flex flex-col justify-center">
                 <span className="font-sans text-caption uppercase tracking-widest text-champagne mb-3 inline-block">
                   Formation vedette
                 </span>
-                <h3 className="font-serif text-display-lg font-medium tracking-tight mb-4">
+                <h3 className="font-serif text-display-sm md:text-display-lg font-medium tracking-tight mb-4">
                   {featured.name}
                 </h3>
-                <p className="font-sans text-body-lg text-ivoire/80 mb-8 leading-relaxed">
+                <p className="font-sans text-body md:text-body-lg text-ivoire/80 mb-6 md:mb-8 leading-relaxed">
                   {featured.description}
                 </p>
-                <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="grid grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">
                   <div className="flex items-center gap-3 text-ivoire/70">
-                    <Users className="w-5 h-5 text-champagne" aria-hidden="true" />
-                    <span className="font-sans text-body-sm">{featured.maxStudents} élèves max</span>
+                    <Users className="w-5 h-5 text-champagne flex-shrink-0" aria-hidden="true" />
+                    <span className="font-sans text-body-sm md:text-body">{featured.maxStudents} élèves max</span>
                   </div>
                   <div className="flex items-center gap-3 text-ivoire/70">
-                    <Clock className="w-5 h-5 text-champagne" aria-hidden="true" />
-                    <span className="font-sans text-body-sm">{featured.duration}</span>
+                    <Clock className="w-5 h-5 text-champagne flex-shrink-0" aria-hidden="true" />
+                    <span className="font-sans text-body-sm md:text-body">{featured.duration}</span>
                   </div>
                   <div className="flex items-center gap-3 text-ivoire/70">
-                    <MapPin className="w-5 h-5 text-champagne" aria-hidden="true" />
-                    <span className="font-sans text-body-sm">{featured.location}</span>
+                    <MapPin className="w-5 h-5 text-champagne flex-shrink-0" aria-hidden="true" />
+                    <span className="font-sans text-body-sm md:text-body">{featured.location}</span>
                   </div>
                   <div className="flex items-center gap-3 text-ivoire/70">
-                    <Award className="w-5 h-5 text-champagne" aria-hidden="true" />
-                    <span className="font-sans text-body-sm">{featured.level}</span>
+                    <Award className="w-5 h-5 text-champagne flex-shrink-0" aria-hidden="true" />
+                    <span className="font-sans text-body-sm md:text-body">{featured.level}</span>
                   </div>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                   <Link
                     to={`/academy/${featured.slug}`}
-                    className={btnPrimary}
+                    className={`w-full sm:w-auto ${btnPrimary} py-4 px-6 md:px-8 text-center`}
                   >
                     DÉTAILS & INSCRIPTION
-                    <ArrowRight className="w-5 h-5" aria-hidden="true" />
+                    <ArrowRight className="w-5 h-5 inline-block ml-2" aria-hidden="true" />
                   </Link>
-                  <a href="#contact" className={btnSecondary}>
+                  <a href="#contact" className={`w-full sm:w-auto ${btnSecondary} py-4 px-6 md:px-8 text-center`}>
                     POSER UNE QUESTION
                   </a>
                 </div>
               </div>
             </div>
-            <div className="absolute top-6 right-6 bg-champagne text-noir px-4 py-1 font-sans text-caption uppercase tracking-wider font-medium">
+            <div className="absolute top-4 md:top-6 right-4 md:right-6 bg-champagne text-noir px-3 md:px-4 py-1 font-sans text-caption uppercase tracking-wider font-medium">
               PROCHAINE SESSION : {featured.nextSession.toUpperCase()}
             </div>
           </motion.article>
@@ -105,10 +105,10 @@ export default function Academy() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-100px' }}
         >
-          <h3 className="font-serif text-display-md font-medium text-center mb-12">
+          <h3 className="font-serif text-display-md font-medium text-center mb-10 md:mb-12">
             Autres formations
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6" role="list">
             {trainings.filter(t => t.id !== featured?.id).map((training, index) => (
               <motion.article
                 key={training.id}
@@ -128,9 +128,9 @@ export default function Academy() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-noir/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <div className="p-6">
+                <div className="p-5 md:p-6">
                   <div className="flex items-center gap-2 text-champagne text-caption uppercase tracking-wider mb-3">
-                    <Award className="w-4 h-4" aria-hidden="true" />
+                    <Award className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                     {training.level}
                   </div>
                   <h3 className="font-serif text-display-sm font-medium text-noir mb-3 group-hover:text-champagne transition-colors">
@@ -139,12 +139,12 @@ export default function Academy() {
                   <p className="font-sans text-body-sm text-noir/60 mb-4 line-clamp-2">
                     {training.description}
                   </p>
-                  <div className="flex items-center gap-4 text-body-sm text-noir/50 mb-4">
-                    <span className="flex items-center gap-1">
+                  <div className="flex items-center gap-3 md:gap-4 text-body-sm text-noir/50 mb-4">
+                    <span className="flex items-center gap-1 flex-shrink-0">
                       <Clock className="w-4 h-4" aria-hidden="true" />
                       {training.duration}
                     </span>
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1 flex-shrink-0">
                       <MapPin className="w-4 h-4" aria-hidden="true" />
                       {training.nextSession}
                     </span>
@@ -167,7 +167,7 @@ export default function Academy() {
         </motion.div>
 
         <motion.div
-          className="text-center mt-16"
+          className="text-center mt-12 md:mt-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

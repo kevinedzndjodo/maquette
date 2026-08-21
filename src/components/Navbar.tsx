@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { navigation, siteConfig, btnPrimary } from '@/data/site'
@@ -9,9 +9,11 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const closeMenu = () => setMobileOpen(false)
 
   return (
     <header
@@ -31,7 +33,7 @@ export default function Navbar() {
             {siteConfig.name}
           </motion.a>
 
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-8">
             {navigation.map((item) => (
               <motion.a
                 key={item.label}
@@ -52,51 +54,75 @@ export default function Navbar() {
             </motion.a>
           </div>
 
-          <div className="flex items-center gap-4 md:hidden">
-            <motion.button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 text-noir"
-              aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-              aria-expanded={mobileOpen}
-              whileTap={{ scale: 0.9 }}
-            >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.button>
-          </div>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden p-2 text-noir -ml-2"
+            aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+          >
+            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
 
-        <motion.div
-          className="md:hidden overflow-hidden bg-ivoire border-t border-nude/30"
-          initial={false}
-          animate={{ height: mobileOpen ? 'auto' : 0, opacity: mobileOpen ? 1 : 0 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-        >
-          <div className="py-6 space-y-4 px-2">
-            {navigation.map((item) => (
-              <motion.a
-                key={item.label}
-                href={item.href}
-                className="block font-sans text-body uppercase tracking-wider text-noir/80 hover:text-noir transition-colors py-2"
-                onClick={() => setMobileOpen(false)}
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.1 }}
-              >
-                {item.label}
-              </motion.a>
-            ))}
-            <motion.a
-              href="#contact"
-              className={`block ${btnPrimary} text-center mt-4`}
-              onClick={() => setMobileOpen(false)}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              id="mobile-menu"
+              className="md:hidden fixed inset-0 top-16 left-0 right-0 bottom-0 bg-ivoire border-t border-nude/30 z-40 flex flex-col"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.25, ease: 'easeInOut' }}
+              role="navigation"
+              aria-label="Menu mobile"
             >
-              BOOK NOW
-            </motion.a>
-          </div>
-        </motion.div>
+              <div className="flex-1 overflow-y-auto py-8 px-6 space-y-6">
+                <nav className="space-y-4" aria-label="Navigation mobile">
+                  {navigation.map((item) => (
+                    <motion.a
+                      key={item.label}
+                      href={item.href}
+                      className="block font-sans text-body-lg uppercase tracking-wider text-noir/80 hover:text-noir transition-colors py-3 border-b border-nude/30"
+                      onClick={closeMenu}
+                      whileTap={{ scale: 0.98 }}
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.05 }}
+                    >
+                      {item.label}
+                    </motion.a>
+                  ))}
+                </nav>
+                <motion.a
+                  href="#contact"
+                  className={`block ${btnPrimary} text-center py-4 mt-4`}
+                  onClick={closeMenu}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  BOOK NOW
+                </motion.a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              className="fixed inset-0 z-30 bg-noir/50 backdrop-blur-sm md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={closeMenu}
+              aria-hidden="true"
+            />
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   )
